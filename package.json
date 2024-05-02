@@ -21,8 +21,6 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "version-bump": "npm version patch && git push && git push --tags",
-    "publish:site": "npm run build:site && gh-pages -d ./build",
-    "publish:npm": "npm publish --access public",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "pretty-quick": "pretty-quick --staged",
     "npm-check": "npm-check --production --ignore '@react-spring/web'",
