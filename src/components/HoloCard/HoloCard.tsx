@@ -71,7 +71,7 @@ export const HoloCard = ({ children, url, height, width, showSparkles }: Props) 
         onMouseOut={handleOnMouseOut}
         height={height ?? 446}
         width={width ?? 320}
-        showSparkles={showSparkles ?? false}
+        showSparkles={showSparkles ?? true}
       >
         {children}
       </StyledHoloCard>
