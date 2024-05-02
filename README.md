@@ -2,9 +2,9 @@
 
 > A simple react component that creates a holo card effect similar to
 [Pokemon cards holo effect v2](https://codepen.io/simeydotme/pen/abYWJdX)
+
 <img src="public/pokemon-cards-demo.gif" />
-> 
-> 
+ 
 > Developed from example: [nicomanzato](https://github.com/nicomanzato/react-holo-card-effect)
 
 ## Install
