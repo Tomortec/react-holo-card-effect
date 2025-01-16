@@ -13,7 +13,8 @@
   "scripts": {
     "build": "run-s build:npm",
     "build:npm": "microbundle-crl --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "old-start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "start": "react-scripts start",
     "prepare": "run-s build",
     "test": "echo 'tests disabled'",
     "testx": "run-s test:unit test:lint test:build",
@@ -72,12 +73,26 @@
     "prop-types": "15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tslib": "^2.5.0",
     "react-scripts": "5.0.1",
+    "tslib": "^2.5.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@babel/plugin-proposal-unicode-property-regex": "^7.18.6",
+    "@babel/plugin-transform-dotall-regex": "^7.25.9",
     "react-parallax-tilt": "^1.7.98",
     "styled-components": "^5.3.6"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

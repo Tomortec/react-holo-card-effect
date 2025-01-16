@@ -8,9 +8,21 @@ interface Props {
   height?: number;
   width?: number;
   showSparkles?: boolean;
+  sparkleImg?: string;
+  sparkleImgOpacity?: number;
+  sparkleImgBgSize?: string;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-export const HoloCard = ({ children, url, height, width, showSparkles }: Props) => {
+export const HoloCard = ({ 
+  children, 
+  className, style,
+  url, 
+  height, width, 
+  showSparkles, sparkleImg,
+  sparkleImgOpacity, sparkleImgBgSize
+}: Props) => {
   const [hover, setHover] = useState(false);
   const [animated, setAnimated] = useState(true);
   const [activeBackgroundPosition, setActiveBackgroundPosition] = useState({
@@ -60,6 +72,7 @@ export const HoloCard = ({ children, url, height, width, showSparkles }: Props) 
   return (
     <Tilt>
       <StyledHoloCard
+        className={className} style={style}
         url={url}
         ref={ref}
         active={hover}
@@ -72,6 +85,9 @@ export const HoloCard = ({ children, url, height, width, showSparkles }: Props) 
         height={height ?? 446}
         width={width ?? 320}
         showSparkles={showSparkles ?? true}
+        sparkleImg={sparkleImg}
+        sparkleImgOpacity={sparkleImgOpacity}
+        sparkleImgBgSize={sparkleImgBgSize}
       >
         {children}
       </StyledHoloCard>

@@ -20,27 +20,27 @@ const holoSparkle = keyframes`
 
 const holoGradient = keyframes`
   0%, 100% {
-    opacity: 0.5;
+    opacity: 0.35;
     background-position: 50% 50%;
     filter: brightness(.5) contrast(1);
   }
   5%, 9% {
     background-position: 100% 100%;
-    opacity: 1;
+    opacity: 0.85;
     filter: brightness(.75) contrast(1.25);
   }
   13%, 17% {
     background-position: 0% 0%;
-    opacity: .88;
+    opacity: .78;
   }
   35%, 39% {
     background-position: 100% 100%;
-    opacity: 1;
+    opacity: 0.85;
     filter: brightness(.5) contrast(1);
   }
   55% {
     background-position: 0% 0%;
-    opacity: 1;
+    opacity: 0.85;
     filter: brightness(.75) contrast(1.25);
   }
 `;
@@ -55,6 +55,9 @@ export const StyledHoloCard = styled.div(
     height,
     width,
     showSparkles,
+    sparkleImg,
+    sparkleImgOpacity,
+    sparkleImgBgSize,
   }: {
     active: boolean;
     activeBackgroundPosition: {
@@ -70,6 +73,9 @@ export const StyledHoloCard = styled.div(
     height: number;
     width: number;
     showSparkles: boolean;
+    sparkleImg?: string;
+    sparkleImgOpacity?: number;
+    sparkleImgBgSize?: string;
   }) => [
     css`
       width: ${width}px;
@@ -116,7 +122,7 @@ export const StyledHoloCard = styled.div(
       }
        `, showSparkles && ` 
       &:after {
-        background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
+        background-image: url(${sparkleImg ?? ""});,
           linear-gradient(
             125deg,
             #ff008450 15%,
@@ -126,17 +132,17 @@ export const StyledHoloCard = styled.div(
             #00cfff40 70%,
             #cc4cfa50 85%
           );
-        position: center;
-        background-size: 180%;
+        background-position: center;
+        background-size: ${sparkleImgBgSize ?? "180%"};
         mix-blend-mode: color-dodge;
-        opacity: 1;
+        opacity: ${sparkleImgOpacity ?? 1};
         z-index: 1;
       }
     `,
     active &&
       `
   :before {
-    opacity: 1;
+    opacity: 0.85;
     animation: none;
     transition: none;
     background-image: linear-gradient(
@@ -155,11 +161,11 @@ export const StyledHoloCard = styled.div(
         tranform: rotateX(0deg) rotateY(0deg);
         &:before {
           transition: 1s;
-          animation: ${holoGradient} 12s ease infinite;
+          animation: ${holoGradient} 12s 5s ease infinite;
         }
         &:after {
           transition: 1s;
-          animation: ${holoSparkle} 12s ease infinite;
+          animation: ${holoSparkle} 12s 5s ease infinite;
         }
       `,
   ]
